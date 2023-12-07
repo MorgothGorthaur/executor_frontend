@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import Header from '../header/Header.jsx';
+import Scenarios from "../page/Scenarios.jsx";
+import Reports from "../page/Reports.jsx";
+import Documentation from "../page/Documentation.jsx";
 
 const contentMap = {
-    scenarios: 'Scenarios content',
-    reports: 'Reports content',
-    documentation: 'Documentation content',
+    scenarios: <Scenarios/>,
+    reports: <Reports/>,
+    documentation: <Documentation/>,
 };
 
 const Home = () => {
