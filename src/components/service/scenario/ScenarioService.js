@@ -16,27 +16,27 @@ const handleApiError = (error) => {
 };
 
 const ScenarioService = {
-    findAll: async (pageConfig) => {
+    findAll: async (pageNum, pageSize) => {
         try {
-            const response = await axios.get(BASE_URL, { data: pageConfig });
+            const response = await axios.get(BASE_URL, { params: { pageNum, pageSize}});
             return response.data;
         } catch (error) {
             handleApiError(error);
         }
     },
 
-    findByName: async (name, pageConfig) => {
+    findByName: async (name, pageNum, pageSize) => {
         try {
-            const response = await axios.get(`${BASE_URL}/name=${name}`, { data: pageConfig });
+            const response = await axios.get(`${BASE_URL}/name=${name}`, { params: { pageNum, pageSize}});
             return response.data;
         } catch (error) {
             handleApiError(error);
         }
     },
 
-    findBySite: async (site, pageConfig) => {
+    findBySite: async (site, pageNum, pageSize) => {
         try {
-            const response = await axios.get(`${BASE_URL}/site=${site}`, { data: pageConfig });
+            const response = await axios.get(`${BASE_URL}/site=${site}`, { params: { pageNum, pageSize}});
             return response.data;
         } catch (error) {
             handleApiError(error);

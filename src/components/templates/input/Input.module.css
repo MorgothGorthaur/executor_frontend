@@ -1,0 +1,7 @@
+.searchInput {
+    width: 300px;
+    display: flex;
+    padding: 10px;
+    box-sizing: border-box;
+    margin: 30px 0 10px;
+}
