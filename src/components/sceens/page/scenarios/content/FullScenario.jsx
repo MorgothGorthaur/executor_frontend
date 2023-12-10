@@ -8,27 +8,27 @@ const FullScenario = ({ scenario, setScenario }) => {
     };
 
     return (
-        <div className={styles['full-scenario-overlay']}>
-            <div className={styles['full-scenario-content']}>
-                <button className={styles['close-button']} onClick={handleClose}>
+        <div className={styles.full_scenario_overlay}>
+            <div className={styles.full_scenario_content}>
+                <button className={styles.close_button} onClick={handleClose}>
                     x
                 </button>
-                <div className={styles['box-container']}>
-                    <div className={styles['scenario-box']}>
-                        <div className={styles['scenario-name']}>{scenario.name}</div>
+                <div className={styles.box_container}>
+                    <div className={styles.scenario_box}>
+                        <div className={styles.scenario_name}>{scenario.name}</div>
                     </div>
-                    <div className={styles['scenario-box']}>
-                        <div className={styles['scenario-site']}>{scenario.site}</div>
+                    <div className={styles.scenario_box}>
+                        <div className={styles.scenario_site}>{scenario.site}</div>
                     </div>
                 </div>
-                <div className={styles['step-list']}>
+                <div className={styles.step_list}>
                     <h2>Steps:</h2>
                     {scenario.steps.map((step, index) => (
-                        <div key={index} className={styles['step-box']}>
-                            <div className={styles['step-action']}>
+                        <div key={index} className={styles.step_box}>
+                            <div className={styles.step_action}>
                                 <strong>Action:</strong> {step.action}
                             </div>
-                            <div className={styles['step-value']}>
+                            <div className={styles.step_value}>
                                 <strong>Value:</strong> {step.value}
                             </div>
                         </div>
