@@ -1,13 +1,12 @@
 import React, {useEffect, useState} from 'react'
 import styles from './Menu.module.css'
-import ScenarioService from "../../../service/scenario/ScenarioService.js"
-import PaginationControls from "../../../templates/PaginationControls/PaginationControls.jsx"
-import Input from "../../../templates/input/Input.jsx"
+import ScenarioService from "../../../../service/scenario/ScenarioService.js"
+import PaginationControls from "../../../../templates/PaginationControls/PaginationControls.jsx"
+import Input from "../../../../templates/input/Input.jsx"
 
-const Menu = () => {
+const Menu = ({setScenarios}) => {
     const [searchType, setSearchType] = useState('name')
     const [searchText, setSearchText] = useState('')
-    const [scenarios, setScenarios] = useState([])
     const [totalPages, setTotalPages] = useState(1)
     const [currentPage, setCurrentPage] = useState(totalPages)
     const [pageSize, setPageSize] = useState(10)
@@ -29,11 +28,11 @@ const Menu = () => {
     async function fetchScenarios() {
         try {
             if (searchText === '') {
-                return await ScenarioService.findAll(currentPage, pageSize)
+                return await ScenarioService.findAll(currentPage -1, pageSize)
             } else if (searchType === 'name') {
-                return await ScenarioService.findByName(searchText, currentPage, pageSize)
+                return await ScenarioService.findByName(searchText, currentPage -1, pageSize)
             } else if (searchType === 'site') {
-                return await ScenarioService.findBySite(searchText, currentPage, pageSize)
+                return await ScenarioService.findBySite(searchText, currentPage -1, pageSize)
             }
         } catch (error) {
             console.error('Error fetching scenarios:', error);
