@@ -1,4 +1,3 @@
-// FullScenario.jsx
 import React from 'react';
 import styles from './FullScenario.module.css';
 
@@ -26,10 +25,10 @@ const FullScenario = ({ scenario, setScenario }) => {
                     {scenario.steps.map((step, index) => (
                         <div key={index} className={styles.step_box}>
                             <div className={styles.step_action}>
-                                <strong>Action:</strong> {step.action}
+                                {step.action}
                             </div>
                             <div className={styles.step_value}>
-                                <strong>Value:</strong> {step.value}
+                               {step.value}
                             </div>
                         </div>
                     ))}
