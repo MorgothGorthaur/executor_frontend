@@ -25,7 +25,6 @@
 
 .box_container {
     margin-top: 50px;
-    padding-top: 100px;
 }
 
 
@@ -42,8 +41,6 @@
 .scenario_box {
     border: 1px solid #ccc;
     border-radius: 5px;
-    padding: 10px;
-    margin-top: 20px;
 }
 
 .scenario_name,
@@ -63,9 +60,9 @@
     margin-top: 10px;
 }
 
-.step_action,
-.step_value {
+.step_content {
     margin-bottom: 5px;
+    flex-direction: column;
 }
 
 
@@ -92,7 +89,7 @@
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     padding: 20px;
     margin: 20px;
     width: 50%;
@@ -110,4 +107,46 @@
     padding: 20px;
     margin: 20px;
     width: 25%;
+}
+
+.add_step_button{
+    margin: 10px 0;
+    padding: 10px;
+    background-color: blue;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.remove_scenario_button {
+    margin: 10px 0;
+    padding: 10px;
+    background-color: red;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+.add_step_button:hover{
+    background-color: darkblue;
+}
+
+.remove_scenario_button:hover {
+    background-color: darkred;
+}
+
+.delete_button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px; /* Добавлен отступ слева для разделения кнопок */
+}
+
+.delete_button img {
+    width: 20px; /* Размер изображения */
 }

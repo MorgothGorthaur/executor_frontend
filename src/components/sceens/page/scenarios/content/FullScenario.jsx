@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './FullScenario.module.css';
-
+import deleteIcon from '../../../../../assets/delete.svg'
 const FullScenario = ({scenario, setScenario}) => {
     const handleClose = () => {
         setScenario(null);
@@ -15,9 +15,8 @@ const FullScenario = ({scenario, setScenario}) => {
 
                 <div className={styles.content}>
                     <div className={styles.left_box}>
-                        <button>
-                            Button 1
-                        </button>
+                        <button className={styles.add_step_button}>add step</button>
+                        <button className={styles.remove_scenario_button}>remove scenario</button>
                     </div>
                     <div className={styles.center_box}>
                         <div className={styles.box_container}>
@@ -30,11 +29,14 @@ const FullScenario = ({scenario, setScenario}) => {
                             <h2>Steps:</h2>
                             {scenario.steps.map((step, index) => (
                                 <div key={index} className={styles.step_box}>
-                                    <div className={styles.step_action}>
+                                    <div className={styles.step_content}>
                                         {step.action}
-                                    </div>
-                                    <div className={styles.step_value}>
+                                        <p/>
                                         {step.value}
+                                        <p/>
+                                        <button className={styles.delete_button}>
+                                            <img src={deleteIcon} alt="Delete" />
+                                        </button>
                                     </div>
                                 </div>
                             ))}
