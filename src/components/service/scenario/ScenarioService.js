@@ -42,6 +42,30 @@ const ScenarioService = {
             handleApiError(error);
         }
     },
+
+    addScenario: async (scenario) => {
+        try {
+            await axios.post(BASE_URL, scenario);
+        } catch (error) {
+            handleApiError(error);
+        }
+    },
+
+    updateScenario: async (scenario) => {
+        try {
+            await axios.patch(BASE_URL, scenario);
+        } catch (error) {
+            handleApiError(error);
+        }
+    },
+
+    deleteScenario: async (scenario) => {
+        try {
+            await axios.delete(BASE_URL, { data: scenario });
+        } catch (error) {
+            handleApiError(error);
+        }
+    },
 };
 
 export default ScenarioService;
