@@ -1,11 +1,14 @@
 .scenarios_container {
     display: flex;
+    height: 100%;
 }
 
 .scenarios_list {
     flex-grow: 1;
     margin-left: 20px;
     margin-right: 20px;
+    overflow: auto;
+    max-height: 92vh;
 }
 
 .scenario_box {
