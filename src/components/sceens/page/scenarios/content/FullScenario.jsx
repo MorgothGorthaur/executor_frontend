@@ -1,9 +1,27 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import styles from './FullScenario.module.css';
 import deleteIcon from '../../../../../assets/delete.svg'
-const FullScenario = ({scenario, setScenario}) => {
+import changeIcon from '../../../../../assets/change.svg'
+import ScenarioService from "../../../../service/scenario/ScenarioService.js";
+
+const FullScenario = ({scenario, setScenario, deleteScenario}) => {
+    async function updateScenario() {
+        try {
+            await ScenarioService.updateScenario(scenario);
+        } catch (error) {
+            console.error('Error updating scenario:', error);
+        }
+    }
+
     const handleClose = () => {
         setScenario(null);
+    };
+
+    const handleDeleteStep = (index) => {
+        const updatedScenario = {...scenario};
+        updatedScenario.steps.splice(index, 1);
+        setScenario(updatedScenario);
+        updateScenario();
     };
 
     return (
@@ -16,13 +34,23 @@ const FullScenario = ({scenario, setScenario}) => {
                 <div className={styles.content}>
                     <div className={styles.left_box}>
                         <button className={styles.add_step_button}>add step</button>
-                        <button className={styles.remove_scenario_button}>remove scenario</button>
                     </div>
                     <div className={styles.center_box}>
                         <div className={styles.box_container}>
                             <div className={styles.scenario_box}>
                                 <div className={styles.scenario_name}>{scenario.name}</div>
                                 <div className={styles.scenario_site}>{scenario.site}</div>
+                                <div>
+                                    <button className={styles.button} >
+                                        <img src={changeIcon} alt="Change"/>
+                                    </button>
+                                    <button className={styles.button} onClick={() => {
+                                        deleteScenario(scenario.id)
+                                        setScenario(null)
+                                    }}>
+                                        <img src={deleteIcon} alt="Delete"/>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                         <div className={styles.step_list}>
@@ -34,16 +62,21 @@ const FullScenario = ({scenario, setScenario}) => {
                                         <p/>
                                         {step.value}
                                         <p/>
-                                        <button className={styles.delete_button}>
-                                            <img src={deleteIcon} alt="Delete" />
-                                        </button>
+                                        <div>
+                                            <button className={styles.button}>
+                                                <img src={changeIcon} alt="Change"/>
+                                            </button>
+                                            <button className={styles.button}
+                                                    onClick={() => handleDeleteStep(index)}>
+                                                <img src={deleteIcon} alt="Delete"/>
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             ))}
                         </div>
                     </div>
                     <div className={styles.right_box}>
-
                         <h1>gg</h1>
                     </div>
                 </div>

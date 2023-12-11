@@ -121,32 +121,18 @@
     transition: background-color 0.3s ease;
 }
 
-.remove_scenario_button {
-    margin: 10px 0;
-    padding: 10px;
-    background-color: red;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-}
 .add_step_button:hover{
     background-color: darkblue;
 }
 
-.remove_scenario_button:hover {
-    background-color: darkred;
-}
 
-.delete_button {
+.button {
     background: none;
     border: none;
     cursor: pointer;
     margin-left: 10px; /* Добавлен отступ слева для разделения кнопок */
 }
 
-.delete_button img {
+.button img {
     width: 20px; /* Размер изображения */
 }
