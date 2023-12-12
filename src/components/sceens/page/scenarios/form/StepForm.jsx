@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import styles from './Form.module.css';
 
-
-const StepForm = ({ submit }) => {
-    const [action, setAction] = useState('');
-    const [value, setValue] = useState('');
+const StepForm = ({ submit, initialAction = '', initialValue = '' }) => {
+    const [action, setAction] = useState(initialAction);
+    const [value, setValue] = useState(initialValue);
 
     const handleSubmit = () => {
         if (!action || !value) {
