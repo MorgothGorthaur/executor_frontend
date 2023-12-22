@@ -4,9 +4,11 @@ import deleteIcon from '../../../../../assets/delete.svg'
 import changeIcon from '../../../../../assets/change.svg'
 import ScenarioService from "../../../../service/scenario/ScenarioService.js";
 import StepForm from "../form/StepForm.jsx";
-const FullScenario = ({ scenario, setScenario, deleteScenario }) => {
-    const [isFormOpen, setFormOpen] = useState(false);
-    const [formMode, setFormMode] = useState('add'); // 'add' or 'change'
+import ScenarioForm from "../form/ScenarioForm.jsx";
+const FullScenario = ({ scenario, setScenario, deleteScenario, updateList }) => {
+    const [isStepFormOpen, setFormOpen] = useState(false);
+    const [stepFormMode, setStepFormMode] = useState('add');
+    const [isScenarioFormOpen, setScenarioFormOpen] = useState(false);
     const [selectedStepIndex, setSelectedStepIndex] = useState(null);
 
     async function updateScenario(updatedScenario) {
@@ -29,20 +31,32 @@ const FullScenario = ({ scenario, setScenario, deleteScenario }) => {
     };
 
     const handleAddStep = () => {
-        setFormMode('add');
+        setStepFormMode('add');
         setFormOpen(true);
 
     };
 
     const handleChangeStep = (index) => {
-        setFormMode('change');
+        setStepFormMode('change');
         setSelectedStepIndex(index);
         setFormOpen(true);
     };
 
-    const handleFormSubmit = (newStep) => {
+    const handleChangeScenario = () => {
+        setScenarioFormOpen(true)
+    }
+    const handleScenarioFormSubmit = (name, site) => {
+        let updatedScenario = {...scenario}
+        updatedScenario.name = name
+        updatedScenario.site = site
+        updateScenario(updatedScenario)
+        setScenario(updatedScenario)
+        setScenarioFormOpen(false)
+        updateList(updatedScenario)
+    }
+    const handleStepFormSubmit = (newStep) => {
         let updatedScenario;
-        if (formMode === 'add') {
+        if (stepFormMode === 'add') {
             updatedScenario = { ...scenario, steps: [...scenario.steps, newStep] };
         } else {
             updatedScenario = { ...scenario };
@@ -56,6 +70,7 @@ const FullScenario = ({ scenario, setScenario, deleteScenario }) => {
     const handleEscPress = (e) => {
         if (e.key === 'Escape') {
             setFormOpen(false);
+            setScenarioFormOpen(false)
         }
     };
 
@@ -87,7 +102,7 @@ const FullScenario = ({ scenario, setScenario, deleteScenario }) => {
                                 <div>
                                     <button
                                         className={styles.button}
-                                        onClick={() => handleChangeStep()}
+                                        onClick={() => handleChangeScenario()}
                                     >
                                         <img src={changeIcon} alt="Change" />
                                     </button>
@@ -136,13 +151,23 @@ const FullScenario = ({ scenario, setScenario, deleteScenario }) => {
                     </div>
                 </div>
             </div>
-            {isFormOpen && (
+            {isStepFormOpen && (
                 <StepForm
-                    submit={handleFormSubmit}
-                    initialAction={formMode === 'change' ? scenario.steps[selectedStepIndex].action : 'clickCss'}
-                    initialValue={formMode === 'change' ? scenario.steps[selectedStepIndex].value : ''}
+                    submit={handleStepFormSubmit}
+                    initialAction={stepFormMode === 'change' ? scenario.steps[selectedStepIndex].action : 'clickCss'}
+                    initialValue={stepFormMode === 'change' ? scenario.steps[selectedStepIndex].value : ''}
                 />
             )}
+
+            {isScenarioFormOpen && (
+                <ScenarioForm
+                    submit={handleScenarioFormSubmit}
+                    initialName={scenario.name}
+                    initialSite={scenario.site}
+                />
+            )}
+
+
         </div>
     );
 };

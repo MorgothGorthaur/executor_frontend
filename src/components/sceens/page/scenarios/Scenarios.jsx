@@ -26,6 +26,13 @@ const Scenarios = () => {
         }
     }
 
+    const updateList = (updatedScenario) => {
+        setScenarios((prevScenarios) =>
+            prevScenarios.map((scenario) =>
+                scenario.id === updatedScenario.id ? updatedScenario : scenario
+            )
+        );
+    };
     return (
         <div className={styles.scenarios_container}>
             <div>
@@ -40,7 +47,9 @@ const Scenarios = () => {
                         <div className={styles.scenario_name}>{scenario.name}</div>
                         <div>{scenario.site}</div>
                         <div>
-                            <button className={styles.button} onClick={() => {handleScenarioClick(scenario)}}>
+                            <button className={styles.button} onClick={() => {
+                                handleScenarioClick(scenario)
+                            }}>
                                 <img src={viewIcon} alt="View"/>
                             </button>
                             <button className={styles.button} onClick={() => handleDeleteScenario(scenario.id)}>
@@ -51,7 +60,8 @@ const Scenarios = () => {
                 ))}
             </div>
             {selectedScenario && (
-                <FullScenario scenario={selectedScenario} setScenario={setSelectedScenario} deleteScenario={handleDeleteScenario}/>
+                <FullScenario scenario={selectedScenario} setScenario={setSelectedScenario}
+                              deleteScenario={handleDeleteScenario} updateList={updateList}/>
             )}
         </div>
     );
