@@ -41,28 +41,14 @@
 .scenario_box {
     border: 1px solid #ccc;
     border-radius: 5px;
+    display: flex;
+    justify-content: center;
 }
 
 .scenario_name,
 .scenario_site {
     font-weight: bold;
     margin-bottom: 5px;
-}
-
-.step_list {
-    margin-top: 20px;
-}
-
-.step_box {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    margin-top: 10px;
-}
-
-.step_content {
-    margin-bottom: 5px;
-    flex-direction: column;
 }
 
 
@@ -130,9 +116,9 @@
     background: none;
     border: none;
     cursor: pointer;
-    margin-left: 10px; /* Добавлен отступ слева для разделения кнопок */
+    margin-left: 10px;
 }
 
 .button img {
-    width: 20px; /* Размер изображения */
+    width: 20px;
 }

@@ -1,0 +1,22 @@
+.step_box {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.step_content {
+    margin-bottom: 5px;
+    flex-direction: column;
+}
+
+.button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.button img {
+    width: 20px;
+}
