@@ -5,12 +5,13 @@ import FullScenario from "./content/FullScenario.jsx";
 import deleteIcon from "../../../../assets/delete.svg";
 import viewIcon from "../../../../assets/view.svg";
 import ScenarioService from "../../../service/scenario/ScenarioService.js";
+import ScenarioForm from "./form/ScenarioForm.jsx";
 
 
 const Scenarios = () => {
     const [scenarios, setScenarios] = useState([]);
     const [selectedScenario, setSelectedScenario] = useState(null);
-
+    const [isFormOpen, setIsFormOpen] = useState(false);
     const handleScenarioClick = (scenario) => {
         setSelectedScenario(scenario);
     };
@@ -33,12 +34,16 @@ const Scenarios = () => {
             )
         );
     };
+
     return (
         <div className={styles.scenarios_container}>
             <div>
-                <Menu setScenarios={setScenarios}/>
+                <Menu setScenarios={setScenarios} setIsFormOpen={setIsFormOpen}/>
             </div>
             <div className={styles.scenarios_list}>
+                <div className={styles.form}>
+                    <ScenarioForm isOpen={isFormOpen} setIsOpen={setIsFormOpen}/>
+                </div>
                 {scenarios.map((scenario, index) => (
                     <div
                         key={index}

@@ -37,3 +37,8 @@
 .button img {
     width: 20px;
 }
+
+.form {
+    display: flex;
+    justify-content: center;
+}

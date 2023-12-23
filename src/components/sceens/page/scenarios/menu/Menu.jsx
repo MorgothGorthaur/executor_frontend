@@ -4,7 +4,7 @@ import ScenarioService from "../../../../service/scenario/ScenarioService.js"
 import PaginationControls from "../../../../templates/PaginationControls/PaginationControls.jsx"
 import Input from "../../../../templates/input/Input.jsx"
 
-const Menu = ({setScenarios}) => {
+const Menu = ({setScenarios, setIsFormOpen}) => {
     const [searchType, setSearchType] = useState('name')
     const [searchText, setSearchText] = useState('')
     const [totalPages, setTotalPages] = useState(1)
@@ -67,6 +67,14 @@ const Menu = ({setScenarios}) => {
                         pageSize={pageSize}
                         setPageSize={handlePageSizeChange}
                     />
+                </div>
+                <div className={styles.buttonContainer}>
+                    <button
+                        onClick={() => setIsFormOpen(true)}
+                        className={styles.button}
+                    >
+                        new scenario
+                    </button>
                 </div>
             </div>
         </div>

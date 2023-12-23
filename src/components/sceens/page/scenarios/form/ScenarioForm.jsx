@@ -38,6 +38,7 @@ const ScenarioForm = ({submit, initialName = '', initialSite = '', isOpen, setIs
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                     />
+                    <label className={styles.formLabel}>Value:</label>
                     <input
                         type="text"
                         className={styles.formInput}
