@@ -5,7 +5,8 @@ import changeIcon from '../../../../../assets/change.svg'
 import ScenarioService from "../../../../service/scenario/ScenarioService.js";
 import ScenarioForm from "../form/ScenarioForm.jsx";
 import StepList from "../steps/StepList.jsx";
-import Reports from "../../Reports.jsx";
+import Reports from "../reports/Reports.jsx"
+import PublisherService from "../../../../service/publisher/PublisherService.js";
 
 const FullScenario = ({scenario, setScenario, deleteScenario, updateList}) => {
     const [isStepFormOpen, setFormOpen] = useState(false);
@@ -30,6 +31,9 @@ const FullScenario = ({scenario, setScenario, deleteScenario, updateList}) => {
         updateList(updatedScenario)
     }
 
+    const publish = () => {
+        PublisherService.publish(scenario)
+    }
 
     return (
         <div className={styles.full_scenario_overlay}>
@@ -42,6 +46,9 @@ const FullScenario = ({scenario, setScenario, deleteScenario, updateList}) => {
                     <div className={styles.left_box}>
                         <button className={styles.add_step_button} onClick={() => setFormOpen(true)}>
                             Add Step
+                        </button>
+                        <button className={styles.add_step_button} onClick={() => publish()}>
+                            run
                         </button>
                     </div>
                     <div className={styles.center_box}>

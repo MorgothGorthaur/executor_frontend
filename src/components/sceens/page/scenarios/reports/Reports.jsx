@@ -2,14 +2,14 @@ import React, { useState, useEffect } from 'react';
 import ReportService from "../../../../service/report/ReportService.js";
 
 
-const Reports = ({ id }) => {
+const Reports = ({id}) => {
     const [reports, setReports] = useState([]);
 
     useEffect(() => {
         const fetchReportsById = async () => {
             try {
-                const response = await ReportService.findById(id, 10);
-                setReports(response);
+                const response = await ReportService.findById(id);
+                setReports(response.content);
             } catch (error) {
                console.log("error loading reports" + error);
             }
