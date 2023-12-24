@@ -5,6 +5,7 @@ import changeIcon from '../../../../../assets/change.svg'
 import ScenarioService from "../../../../service/scenario/ScenarioService.js";
 import ScenarioForm from "../form/ScenarioForm.jsx";
 import StepList from "../steps/StepList.jsx";
+import Reports from "../../Reports.jsx";
 
 const FullScenario = ({scenario, setScenario, deleteScenario, updateList}) => {
     const [isStepFormOpen, setFormOpen] = useState(false);
@@ -97,7 +98,7 @@ const FullScenario = ({scenario, setScenario, deleteScenario, updateList}) => {
                         </div>
                     </div>
                     <div className={styles.right_box}>
-                        <h1>gg</h1>
+                        <Reports id ={scenario.id}/>
                     </div>
                 </div>
             </div>
