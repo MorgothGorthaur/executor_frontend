@@ -41,13 +41,11 @@ const Scenarios = () => {
     }
 
     async function findBySite(searchText, currentPage, pageSize){
-        const encodeSite = searchText.replace(/ /g, '')
-        return await ScenarioService.findBySite(encodeSite, currentPage -1, pageSize)
+        return await ScenarioService.findBySite(searchText, currentPage -1, pageSize)
     }
 
     async function findByName(searchText, currentPage, pageSize){
-        const encodedName = searchText.replace(/ /g, '');
-        return await ScenarioService.findByName(encodedName, currentPage -1, pageSize)
+        return await ScenarioService.findByName(searchText, currentPage -1, pageSize)
     }
     
     async function addScenario(name, site) {
