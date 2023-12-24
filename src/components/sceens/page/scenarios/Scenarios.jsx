@@ -35,14 +35,40 @@ const Scenarios = () => {
         );
     };
 
+    
+    async function findAll(currentPage, pageSize) {
+        return await ScenarioService.findAll(currentPage -1, pageSize)
+    }
+
+    async function findBySite(searchText, currentPage, pageSize){
+        const encodeSite = searchText.replace(/ /g, '')
+        return await ScenarioService.findBySite(encodeSite, currentPage -1, pageSize)
+    }
+
+    async function findByName(searchText, currentPage, pageSize){
+        const encodedName = searchText.replace(/ /g, '');
+        return await ScenarioService.findByName(encodedName, currentPage -1, pageSize)
+    }
+    
+    async function addScenario(name, site) {
+        await ScenarioService.addScenario({name, site})
+        const newList = await findByName(name, 1,10)
+        setScenarios(newList.content)
+        setIsFormOpen(false)
+    }
     return (
         <div className={styles.scenarios_container}>
             <div>
-                <Menu setScenarios={setScenarios} setIsFormOpen={setIsFormOpen}/>
+                <Menu setScenarios={setScenarios}
+                      setIsFormOpen={setIsFormOpen}
+                      findAll={findAll}
+                      findBySite={findBySite}
+                      findByName={findByName}
+                />
             </div>
             <div className={styles.scenarios_list}>
                 <div className={styles.form}>
-                    <ScenarioForm isOpen={isFormOpen} setIsOpen={setIsFormOpen}/>
+                    <ScenarioForm isOpen={isFormOpen} setIsOpen={setIsFormOpen} submit={addScenario}/>
                 </div>
                 {scenarios.map((scenario, index) => (
                     <div

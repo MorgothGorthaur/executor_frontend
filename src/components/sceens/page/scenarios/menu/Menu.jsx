@@ -1,10 +1,9 @@
 import React, {useEffect, useState} from 'react'
 import styles from './Menu.module.css'
-import ScenarioService from "../../../../service/scenario/ScenarioService.js"
 import PaginationControls from "../../../../templates/PaginationControls/PaginationControls.jsx"
 import Input from "../../../../templates/input/Input.jsx"
 
-const Menu = ({setScenarios, setIsFormOpen}) => {
+const Menu = ({setScenarios, setIsFormOpen, findAll, findByName, findBySite}) => {
     const [searchType, setSearchType] = useState('name')
     const [searchText, setSearchText] = useState('')
     const [totalPages, setTotalPages] = useState(1)
@@ -28,11 +27,11 @@ const Menu = ({setScenarios, setIsFormOpen}) => {
     async function fetchScenarios() {
         try {
             if (searchText === '') {
-                return await ScenarioService.findAll(currentPage -1, pageSize)
+                return await findAll(currentPage, pageSize)
             } else if (searchType === 'name') {
-                return await ScenarioService.findByName(searchText, currentPage -1, pageSize)
+                return await findByName(searchText, currentPage, pageSize)
             } else if (searchType === 'site') {
-                return await ScenarioService.findBySite(searchText, currentPage -1, pageSize)
+                return await findBySite(searchText, currentPage, pageSize)
             }
         } catch (error) {
             console.error('Error fetching scenarios:', error);

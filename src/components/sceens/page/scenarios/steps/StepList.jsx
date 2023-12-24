@@ -21,7 +21,6 @@ const StepList = ({scenario, setScenario, updateScenario, isStepFormOpen, setFor
                 <Step step={step} index={index} scenario={scenario} setScenario={setScenario}
                       updateScenario={updateScenario}/>
             ))}
-
             <StepForm
                 submit={handleStepFormSubmit}
                 initialAction={'clickCss'}
