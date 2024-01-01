@@ -52,7 +52,7 @@ const Reports = () => {
                         </div>
 
                         <div className={styles.execution_info}>
-                            {report.errorMessage? 'successful' : 'failed'}
+                            {report.errorMessage?  'failed' : 'successful'}
                         </div>
 
                         <div>
