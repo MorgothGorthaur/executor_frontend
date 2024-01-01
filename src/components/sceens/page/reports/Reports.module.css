@@ -1,0 +1,54 @@
+.reports_container {
+    display: flex;
+    height: 100%;
+}
+
+.reports_list {
+    flex-grow: 1;
+    margin-left: 20px;
+    margin-right: 20px;
+    overflow: auto;
+    max-height: 92vh;
+}
+
+.report_box {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    align-items: center;
+    display: flex;
+}
+
+.report_name {
+    font-family: Arial, sans-serif;
+    margin-bottom: 5px;
+    width: 40vh;
+}
+
+.button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.button img {
+    width: 20px;
+}
+
+.time_range {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 40vh;
+}
+
+.execution_info {
+    font-family: Arial, sans-serif;
+    margin-bottom: 5px;
+    width: 40vh;
+}
