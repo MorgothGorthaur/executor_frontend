@@ -84,3 +84,21 @@
     font-size: 32px;
     cursor: pointer;
 }
+
+.button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.button img {
+    width: 20px;
+}
+
+.info {
+    justify-content: center;
+    display: flex;
+    margin-left: 80vh;
+    /*padding-left: 40%;*/
+}

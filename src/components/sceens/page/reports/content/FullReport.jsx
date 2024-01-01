@@ -1,11 +1,23 @@
 import styles from "./FullReport.module.css";
 import React from "react";
 import StepList from "../steps/StepList.jsx";
+import saveIcon from "../../../../../assets/save.svg";
 
 const FullReport = ({report, setReport}) => {
     const formatDateTime = (date) => {
         const f = date.toString().split(',')
         return `${f[0]}/${f[1]}/${f[2]} ${f[3]}:${f[4]}:${f[5]}`;
+    };
+    const downloadReport = (report) => {
+        const blob = new Blob([JSON.stringify(report)], {type: 'application/json'});
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'report.json';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
     };
 
     return (
@@ -18,7 +30,15 @@ const FullReport = ({report, setReport}) => {
                     <div className={styles.box}>
                         <div className={styles.box_container}>
                             <table className={styles.table}>
-                                <caption className={styles.tableCaption}>Scenario Report</caption>
+                                <div className={styles.info}>
+                                    <caption className={styles.tableCaption}>Scenario Report</caption>
+                                    <button
+                                        className={styles.button}
+                                        onClick={() => downloadReport(report)}
+                                    >
+                                        <img src={saveIcon} alt="Download Report"/>
+                                    </button>
+                                </div>
                                 <tbody>
                                 <tr>
                                     <td className={styles.tableCell}>name</td>
@@ -46,7 +66,7 @@ const FullReport = ({report, setReport}) => {
                                 </tr>
                                 </tbody>
                             </table>
-                            <StepList steps={report.stepReports} />
+                            <StepList steps={report.stepReports}/>
                         </div>
                     </div>
                 </div>
