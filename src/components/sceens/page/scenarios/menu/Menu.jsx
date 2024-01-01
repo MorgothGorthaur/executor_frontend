@@ -9,8 +9,6 @@ const Menu = ({setScenarios, setIsFormOpen, findAll, findByName, findBySite}) =>
     const [totalPages, setTotalPages] = useState(1)
     const [currentPage, setCurrentPage] = useState(totalPages)
     const [pageSize, setPageSize] = useState(10)
-    const handleSearchTypeChange = (type) => setSearchType(type)
-
     useEffect(() => {
         fetchScenarios().then(value => {
             setScenarios(value.content)
@@ -46,13 +44,13 @@ const Menu = ({setScenarios, setIsFormOpen, findAll, findByName, findBySite}) =>
                 </div>
                 <div className={styles.buttonContainer}>
                     <button
-                        onClick={() => handleSearchTypeChange('name')}
+                        onClick={() => setSearchType('name')}
                         className={`${styles.button} ${searchType === 'name' ? styles.selectedButton : ''}`}
                     >
                         Search by Name
                     </button>
                     <button
-                        onClick={() => handleSearchTypeChange('site')}
+                        onClick={() => setSearchType('site')}
                         className={`${styles.button} ${searchType === 'site' ? styles.selectedButton : ''}`}
                     >
                         Search by Site
