@@ -3,6 +3,7 @@ import ReportService from "../../../service/report/ReportService.js";
 import Menu from "./menu/Menu.jsx";
 import styles from "./Reports.module.css";
 import viewIcon from "../../../../assets/view.svg";
+import FullReport from "./content/FullReport.jsx";
 
 const Reports = () => {
     const [reports, setReports] = useState([])
@@ -40,10 +41,18 @@ const Reports = () => {
                         key={index}
                         className={styles.report_box}
                     >
-                        <div className={styles.report_name}>{report.name}</div>
-                        <div>{report.site}</div>
+                        <div className={styles.report_name}>
+                            <div>{report.name}</div>
+                            <div>{report.site}</div>
+                        </div>
+
                         <div className={styles.time_range}>
-                            {formatDateTime(report.startTime)} - {formatDateTime(report.endTime)}
+                            <div>{formatDateTime(report.startTime)}</div>
+                            <div>{formatDateTime(report.endTime)}</div>
+                        </div>
+
+                        <div className={styles.execution_info}>
+                            {report.errorMessage? 'successful' : 'failed'}
                         </div>
 
                         <div>
@@ -57,10 +66,9 @@ const Reports = () => {
                     </div>
                 ))}
             </div>
-            {/*{selectedReport && (*/}
-            {/*    <FullScenario scenario={selectedScenario} setScenario={setSelectedScenario}*/}
-            {/*                  deleteScenario={handleDeleteScenario} updateList={updateList}/>*/}
-            {/*)}*/}
+            {selectedReport && (
+                <FullReport report ={selectedReport} setReport={setSelectedReport}/>
+            )}
         </div>
     )
 }

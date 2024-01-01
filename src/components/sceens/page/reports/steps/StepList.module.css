@@ -1,0 +1,23 @@
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.tableHeader {
+    border: 1px solid #ccc;
+    padding: 8px;
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.tableCell {
+    border: 1px solid #ccc;
+    padding: 8px;
+}
+.tableCaption {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
