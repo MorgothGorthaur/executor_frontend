@@ -5,6 +5,14 @@ const BASE_URL = 'http://localhost:8080/manager/reports';
 
 
 const ReportService = {
+    findAll: async (pageNum, pageSize) => {
+        try {
+            const response = await axios.get(BASE_URL, { params: { pageNum, pageSize}});
+            return response.data;
+        } catch (error) {
+            HandleApiError(error);
+        }
+    },
 
     findById: async (id) => {
         try {
@@ -17,41 +25,23 @@ const ReportService = {
         }
     },
 
-    findSuccessfulByName: async (name, pageNum, pageSize) => {
+    findByName: async (name, pageNum, pageSize) => {
         try {
-            const response = await axios.get(`${BASE_URL}/successful/name=${name}`, { params: { pageNum, pageSize } });
+            const response = await axios.get(`${BASE_URL}/name=${name}`, { params: { pageNum, pageSize}});
             return response.data;
         } catch (error) {
             HandleApiError(error);
         }
     },
 
-    findSuccessfulBySite: async (site, pageNum, pageSize) => {
+    findBySite: async (site, pageNum, pageSize) => {
         try {
-            const response = await axios.get(`${BASE_URL}/successful/site=${site}`, { params: { pageNum, pageSize } });
+            const response = await axios.get(`${BASE_URL}/site=${site}`, { params: { pageNum, pageSize}});
             return response.data;
         } catch (error) {
             HandleApiError(error);
         }
-    },
-
-    findFailedByName: async (name, pageNum, pageSize) => {
-        try {
-            const response = await axios.get(`${BASE_URL}/failed/name=${name}`, { params: { pageNum, pageSize } });
-            return response.data;
-        } catch (error) {
-            HandleApiError(error);
-        }
-    },
-
-    findFailedBySite: async (site, pageNum, pageSize) => {
-        try {
-            const response = await axios.get(`${BASE_URL}/failed/site=${site}`, { params: { pageNum, pageSize } });
-            return response.data;
-        } catch (error) {
-            HandleApiError(error);
-        }
-    },
+    }
 };
 
 export default ReportService;
