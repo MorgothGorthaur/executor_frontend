@@ -30,15 +30,16 @@ const FullReport = ({report, setReport}) => {
                     <div className={styles.box}>
                         <div className={styles.box_container}>
                             <table className={styles.table}>
-                                <div className={styles.info}>
-                                    <caption className={styles.tableCaption}>Scenario Report</caption>
+
+                                <caption className={styles.tableCaption}>
+                                    Scenario Report
                                     <button
                                         className={styles.button}
                                         onClick={() => downloadReport(report)}
                                     >
                                         <img src={saveIcon} alt="Download Report"/>
                                     </button>
-                                </div>
+                                </caption>
                                 <tbody>
                                 <tr>
                                     <td className={styles.tableCell}>name</td>
