@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import styles from "./Menu.module.css";
-import Input from "../../../../../templates/input/Input.jsx";
-import PaginationControls from "../../../../../templates/PaginationControls/PaginationControls.jsx";
+import Input from "../../../../templates/input/Input.jsx";
+import PaginationControls from "../../../../templates/PaginationControls/PaginationControls.jsx";
 
 const Menu = ({setReports, findAll, findByName, findBySite}) => {
 
