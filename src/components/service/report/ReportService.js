@@ -18,7 +18,7 @@ const ReportService = {
         try {
             const pageNum = 0
             const pageSize = 10
-            const response = await axios.get(BASE_URL+ "/" + id, { params: { pageNum, pageSize}});
+            const response = await axios.get(BASE_URL+ "/id", { params: { pageNum, pageSize, id}});
             return response.data;
         } catch (error) {
             HandleApiError(error)
@@ -27,7 +27,7 @@ const ReportService = {
 
     findByName: async (name, pageNum, pageSize) => {
         try {
-            const response = await axios.get(`${BASE_URL}/name=${name}`, { params: { pageNum, pageSize}});
+            const response = await axios.get(`${BASE_URL}/name`, { params: { pageNum, pageSize, site}});
             return response.data;
         } catch (error) {
             HandleApiError(error);
@@ -36,7 +36,7 @@ const ReportService = {
 
     findBySite: async (site, pageNum, pageSize) => {
         try {
-            const response = await axios.get(`${BASE_URL}/site=${site}`, { params: { pageNum, pageSize}});
+            const response = await axios.get(`${BASE_URL}/site`, { params: { pageNum, pageSize, site}});
             return response.data;
         } catch (error) {
             HandleApiError(error);

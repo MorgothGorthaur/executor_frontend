@@ -16,7 +16,7 @@ const ScenarioService = {
 
     findByName: async (name, pageNum, pageSize) => {
         try {
-            const response = await axios.get(`${BASE_URL}/name=${name}`, { params: { pageNum, pageSize}});
+            const response = await axios.get(`${BASE_URL}/name`, { params: { pageNum, pageSize, name}});
             return response.data;
         } catch (error) {
             HandleApiError(error);
@@ -25,7 +25,7 @@ const ScenarioService = {
 
     findBySite: async (site, pageNum, pageSize) => {
         try {
-            const response = await axios.get(`${BASE_URL}/site=${site}`, { params: { pageNum, pageSize}});
+            const response = await axios.get(`${BASE_URL}/site`, { params: { pageNum, pageSize, site}});
             return response.data;
         } catch (error) {
             HandleApiError(error);
