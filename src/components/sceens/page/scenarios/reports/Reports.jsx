@@ -34,7 +34,7 @@ const Reports = ({id}) => {
 
     const formatDateTime = (date) => {
         const f = date.toString().split(',')
-        return `${f[0]}:${f[1]}:${f[2]}`;
+        return `${f[0]}/${f[1]}/${f[2]} ${f[3]}:${f[4]}:${f[5]}`;
     };
     return (
         <div>
