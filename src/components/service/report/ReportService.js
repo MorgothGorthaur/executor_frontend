@@ -27,7 +27,7 @@ const ReportService = {
 
     findByName: async (name, pageNum, pageSize) => {
         try {
-            const response = await axios.get(`${BASE_URL}/name`, { params: { pageNum, pageSize, site}});
+            const response = await axios.get(`${BASE_URL}/name`, { params: { pageNum, pageSize, name}});
             return response.data;
         } catch (error) {
             HandleApiError(error);
