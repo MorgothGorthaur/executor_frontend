@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import styles from './FullScenario.module.css';
 import deleteIcon from '../../../../../assets/delete.svg'
 import changeIcon from '../../../../../assets/change.svg'
+import plusIcon from '../../../../../assets/plus.svg'
+import runIcon from '../../../../../assets/run.svg'
 import ScenarioService from "../../../../service/scenario/ScenarioService.js";
 import ScenarioForm from "../form/ScenarioForm.jsx";
 import StepList from "../steps/StepList.jsx";
@@ -43,14 +45,6 @@ const FullScenario = ({scenario, setScenario, deleteScenario, updateList}) => {
                 </button>
 
                 <div className={styles.content}>
-                    <div className={styles.left_box}>
-                        <button className={styles.add_step_button} onClick={() => setFormOpen(true)}>
-                            Add Step
-                        </button>
-                        <button className={styles.add_step_button} onClick={() => publish()}>
-                            run
-                        </button>
-                    </div>
                     <div className={styles.center_box}>
                         <div className={styles.box_container}>
 
@@ -79,6 +73,12 @@ const FullScenario = ({scenario, setScenario, deleteScenario, updateList}) => {
                                             >
                                                 <img src={deleteIcon} alt="Delete"/>
                                             </button>
+                                            <button
+                                                className={styles.button}
+                                                onClick={() => publish()}
+                                            >
+                                                <img src={runIcon} alt="Run"/>
+                                            </button>
                                         </div>
                                     </div>
                                 )}
@@ -102,6 +102,12 @@ const FullScenario = ({scenario, setScenario, deleteScenario, updateList}) => {
                                       isStepFormOpen={isStepFormOpen}
                                       setFormOpen={setFormOpen}
                             />
+                            <button
+                                className={styles.button}
+                                onClick={() => setFormOpen(true)}
+                            >
+                                <img src={plusIcon} alt="Add"/>
+                            </button>
                         </div>
                     </div>
                     <div className={styles.right_box}>
