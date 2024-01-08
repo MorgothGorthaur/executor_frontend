@@ -2,22 +2,12 @@ import styles from "./FullReport.module.css";
 import React from "react";
 import StepList from "../steps/StepList.jsx";
 import saveIcon from "../../../../../assets/save.svg";
+import ExportReportService from "../../../../service/report/ExportReportService.jsx";
 
 const FullReport = ({report, setReport}) => {
     const formatDateTime = (date) => {
         const f = date.toString().split(',')
         return `${f[0]}/${f[1]}/${f[2]} ${f[3]}:${f[4]}:${f[5]}`;
-    };
-    const downloadReport = (report) => {
-        const blob = new Blob([JSON.stringify(report)], {type: 'application/json'});
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = 'report.json';
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        URL.revokeObjectURL(url);
     };
 
     return (
@@ -35,7 +25,7 @@ const FullReport = ({report, setReport}) => {
                                     Scenario Report
                                     <button
                                         className={styles.button}
-                                        onClick={() => downloadReport(report)}
+                                        onClick={() => ExportReportService.downloadReport(report)}
                                     >
                                         <img src={saveIcon} alt="Download Report"/>
                                     </button>

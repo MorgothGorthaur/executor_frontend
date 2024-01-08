@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:8081/publisher/scenario';
+const BASE_URL = 'http://localhost:8080/publisher/scenario';
 
 const PublisherService = {
 
