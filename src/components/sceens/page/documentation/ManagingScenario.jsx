@@ -10,8 +10,7 @@ const ManagingScenario = () => {
                 <h3> Managing Scenario </h3>
             </div>
             <p>
-                On the left, you'll find the scenario control panel.
-                To add a new step, simply click the "Add Step" button:
+                To add a new step, click the "Plus" icon:
             </p>
             <div className={styles.img_container}>
                 <img src={addStep} className={styles.img}/>
@@ -22,7 +21,7 @@ const ManagingScenario = () => {
             </div>
             <p>
                 After clicking the "Submit" button, your step will be displayed in the scenario data block,
-                ready for use. Once you click the "Run" button,
+                ready for use. Once you click the "Run" icon,
                 the scenario will be executed by the server:
             </p>
             <div className={styles.img_container}>
