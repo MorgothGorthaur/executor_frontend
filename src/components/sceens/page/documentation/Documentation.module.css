@@ -1,0 +1,51 @@
+
+
+.documentationContainer {
+    display: flex;
+}
+
+.menuContainer {
+    margin: 1vh;
+    height: 92vh;
+    max-height: 92vh;
+    width: 400px;
+    background-color: #f0f0f0;
+    border: 1px solid #000;
+    border-radius: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.menuContainer h2 {
+    margin-bottom: 10px;
+}
+
+.list {
+    display: flex;
+    justify-content: left;
+    flex-direction: column;
+}
+
+.menuContainer ul {
+    list-style: none;
+    padding: 0;
+}
+
+.menuContainer li {
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+.contentContainer {
+    margin: 1vh 2vh 1vh 1vh;
+    height: 92vh;
+    width: 160vh;
+    max-height: 92vh;
+    border: 1px solid #000;
+    border-radius: 10px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+}

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Header from '../header/Header.jsx';
 import Scenarios from "../page/scenarios/Scenarios.jsx";
 import Reports from "../page/reports/Reports.jsx";
-import Documentation from "../page/Documentation.jsx";
+import Documentation from "../page/documentation/Documentation.jsx";
 
 const contentMap = {
     scenarios: <Scenarios/>,
