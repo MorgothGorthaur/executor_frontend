@@ -1,6 +1,8 @@
 .content {
     padding: 10px;
     overflow: auto;
+    justify-content: center;
+
 }
 
 .title {
@@ -9,7 +11,16 @@
 }
 
 .img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.img_container {
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
     padding: 5px;
 }

@@ -11,27 +11,18 @@ const AddingScenario = () => {
             <div className={styles.title}>
                 <h3> Creating Scenario </h3>
             </div>
-            <p>
-                To create a new scenario, navigate to the "Scenarios" tab and click on the "New Scenario" button in the
-                menu.
-            </p>
-            <div className={styles.img}>
-                <img src={scenarios}/>
+            <p> To create a new scenario, navigate to the "Scenarios" tab and click on the "New Scenario" button in the menu:</p>
+            <div className={styles.img_container}>
+                <img src={scenarios} className={styles.img}/>
+                <img src={newScenario} className={styles.img}/>
             </div>
-            <div className={styles.img}>
-                <img src={newScenario}/>
+            <p>In the appearing form, enter the scenario name and the website you want to test:</p>
+            <div className={styles.img_container}>
+                <img src={scenarioForm} className={styles.img}/>
             </div>
-            <p>
-                In the appearing form, enter the scenario name and the website you want to test.
-            </p>
-            <div className={styles.img}>
-                <img src={scenarioForm}/>
-            </div>
-            <p>
-                After clicking the "Submit" button, the scenario will appear.
-            </p>
-            <div className={styles.img}>
-                <img src={createdScenario}/>
+            <p>After clicking the "Submit" button, the scenario will appear:</p>
+            <div className={styles.img_container}>
+                <img src={createdScenario} className={styles.img}/>
             </div>
         </div>
     )
