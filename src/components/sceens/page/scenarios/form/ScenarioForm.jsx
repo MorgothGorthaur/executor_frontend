@@ -24,21 +24,21 @@ const ScenarioForm = ({submit, initialName = '', initialSite = '', isOpen, setIs
         }
         submit(name, site);
         setName('');
-        setName('');
+        setSite('');
     };
 
     return (
         <>
             {isOpen && (
                 <div className={styles.formContainer}>
-                    <label className={styles.formLabel}>Action:</label>
+                    <label className={styles.formLabel}>Name:</label>
                     <input
                         type="text"
                         className={styles.formInput}
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                     />
-                    <label className={styles.formLabel}>Value:</label>
+                    <label className={styles.formLabel}>Site:</label>
                     <input
                         type="text"
                         className={styles.formInput}
